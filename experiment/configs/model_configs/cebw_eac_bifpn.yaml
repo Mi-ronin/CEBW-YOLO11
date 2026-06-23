@@ -1,0 +1,36 @@
+# 集成 EAC + BiFPN-DySample，无 DWR
+nc: 4
+scales:
+  n: [0.33, 0.25, 1024]
+
+backbone:
+  - [-1, 1, Conv, [64, 3, 2]]
+  - [-1, 1, Conv, [128, 3, 2]]
+  - [-1, 3, C3k2, [128, True]]
+  - [-1, 1, Conv, [256, 3, 2]]
+  - [-1, 6, C3k2, [256, True]]        # 无 DWR
+  - [-1, 1, Conv, [512, 3, 2]]
+  - [-1, 6, C3k2, [512, True]]
+  - [-1, 1, Conv, [1024, 3, 2]]
+  - [-1, 3, C3k2, [1024, True]]
+  - [-1, 1, SPPF, [1024, 5]]
+  - [-1, 1, C2PSA_EAC, [1024, 4]]     # EAC
+
+neck:
+  # 同 model4 的 BiFPN-DySample neck
+  - [-1, 1, nn.Upsample, [None, 2, 'nearest']]
+  - [[-1, 6], 1, Concat, [1]]
+  - [-1, 3, C3k2, [512, False]]
+  - [-1, 1, nn.Upsample, [None, 2, 'nearest']]
+  - [[-1, 4], 1, Concat, [1]]
+  - [-1, 3, C3k2, [256, False]]
+  - [-1, 1, Conv, [256, 3, 2]]
+  - [[-1, 11], 1, Concat, [1]]
+  - [-1, 3, C3k2, [512, False]]
+  - [-1, 1, Conv, [512, 3, 2]]
+  - [[-1, 9], 1, Concat, [1]]
+  - [-1, 3, C3k2, [1024, False]]
+  - [[12, 13, 14], 1, BiFPNDySampleModule, [[256, 512, 1024], 3, 4]
+
+head:
+  - [[15, 16, 17], 1, Detect, [nc]]

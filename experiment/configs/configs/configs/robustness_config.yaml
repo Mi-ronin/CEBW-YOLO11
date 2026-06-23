@@ -1,0 +1,5 @@
+# 鲁棒性测试配置
+model_path: runs/ablation/model10_full/seed42/weights/best.pt   # 训练好的最终模型路径
+data_yaml: configs/dataset.yaml
+device: '429872190'                   # GPU编号，
+output_dir: runs/robustness   # 输出目录

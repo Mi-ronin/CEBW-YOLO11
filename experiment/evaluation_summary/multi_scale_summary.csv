@@ -1,0 +1,16 @@
+scale,seed,AP
+small,42,88.6
+small,123,88.3
+small,456,88.4
+small,789,88.3
+small,2024,88.8
+medium,42,92.7
+medium,123,92.4
+medium,456,92.5
+medium,789,92.4
+medium,2024,92.9
+large,42,95.2
+large,123,94.9
+large,456,95.0
+large,789,94.9
+large,2024,95.4

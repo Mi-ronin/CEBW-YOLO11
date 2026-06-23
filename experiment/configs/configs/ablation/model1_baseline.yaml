@@ -1,0 +1,14 @@
+exp_name: model1_baseline
+model_yaml: ultralytics/cfg/models/11/yolo11.yaml   # 官方YOLO11n配置
+pretrained: yolo11n.pt
+data_yaml: ./configs/dataset.yaml
+epochs: 300
+imgsz: 640
+batch: 8
+device: '0'
+optimizer: AdamW
+lr0: 0.01
+momentum: 0.937
+workers: 8
+seed: 42
+hyperparams: {}

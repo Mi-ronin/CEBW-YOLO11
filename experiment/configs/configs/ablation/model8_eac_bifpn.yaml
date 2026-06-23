@@ -1,0 +1,14 @@
+exp_name: model8_eac_bifpn
+model_yaml: model_configs/cebw_eac_bifpn.yaml
+pretrained: yolo11n.pt
+data_yaml: configs/dataset.yaml
+epochs: 300
+imgsz: 640
+batch: 8
+device: '0'
+optimizer: AdamW
+lr0: 0.01
+momentum: 0.937
+workers: 8
+seed: 42
+hyperparams: {}

@@ -1,0 +1,14 @@
+exp_name: yolov7_t
+model_yaml: ultralytics/cfg/models/v7/yolov7-t.yaml
+pretrained: yolov7-t.pt
+data_yaml: configs/dataset.yaml
+epochs: 300
+imgsz: 640
+batch: 8
+device: '0'
+optimizer: AdamW
+lr0: 0.01
+momentum: 0.937
+workers: 8
+seed: 42
+hyperparams: {}

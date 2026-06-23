@@ -1,0 +1,16 @@
+exp_name: loss_inner_iou
+model_yaml: ultralytics/cfg/models/11/yolo11.yaml
+pretrained: yolo11n.pt
+data_yaml: configs/dataset.yaml
+epochs: 300
+imgsz: 640
+batch: 8
+device: '0'
+optimizer: AdamW
+lr0: 0.01
+momentum: 0.937
+workers: 8
+seed: 42
+hyperparams:
+  loss_type: InnerIoU
+  inner_iou_ratio: 0.8
