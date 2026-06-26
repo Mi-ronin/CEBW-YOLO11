@@ -2,16 +2,17 @@
 # Each model variant was trained independently with the following seeds (3 repetitions)
 # The reported metrics in Tables 5-10 are means ± standard deviations over these 3 seeds.
 
-SEEDS = [42, 123, 2024]
+SEEDS = [42, 123, 456, 789, 2024]
 
-# For each experiment, we provide three folders (seed42, seed123, seed2024) under the corresponding run directory.
+# For each experiment, we provide three folders (seed42, seed123, seed456, seed789, seed2024) under the corresponding run directory.
 # Example directory structure:
 # runs/model1_baseline/seed42/
 # runs/model1_baseline/seed123/
+# runs/model1_baseline/seed456/
+# runs/model1_baseline/seed789/
 # runs/model1_baseline/seed2024/
 
 # The raw logs, predictions, and metrics.json are stored inside each seed subfolder.
 
-# If more than 3 repetitions were used, additional seeds: 456, 789, ...
 
 # All comparisons (ablation, loss ablation, robustness, multi-scale) follow the same seed list.
